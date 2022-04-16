@@ -137,3 +137,4 @@ having avg(COMMISSION_PCT) > 0.2;
 select MANAGER_ID , max(SALARY) from EMPLOYEES
 group by MANAGER_ID
 having max(SALARY) > 10000;
+
