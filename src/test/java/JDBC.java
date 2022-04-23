@@ -47,11 +47,56 @@ public class JDBC {
         Statement stmt_sp = conn_sp.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 
         //3. get top 2 first names from employees table using next()
-        ResultSet rs_hr1 = stmt_hr.executeQuery("SELECT first_name from employees");
-        rs_hr1.next();
-        System.out.println(rs_hr1.getString(1));
-        rs_hr1.next();
-        System.out.println(rs_hr1.getString(1));
+//        ResultSet rs_hr1 = stmt_hr.executeQuery("SELECT * from employees");
+//        rs_hr1.next();
+//        System.out.println(rs_hr1.getString(2));
+//        rs_hr1.next();
+//        System.out.println(rs_hr1.getString("LAST_NAME"));
+
+        //4. get top 3 phone numbers from spartans table using next()
+//        ResultSet rs_sp1 = stmt_sp.executeQuery("select * from spartans");
+//        rs_sp1.next();
+//        System.out.println(rs_sp1.getString(4));
+//        rs_sp1.next();
+//        System.out.println(rs_sp1.getString("PHONE"));
+//        rs_sp1.next();
+//        System.out.println(rs_sp1.getString(4));
+
+        // 5. get every country name from countries table
+//        ResultSet rs_hr2 = stmt_hr.executeQuery("SELECT country_name from countries");
+//        while(rs_hr2.next()){
+//            System.out.println(rs_hr2.getString(1));
+//        }
+
+        //  6. get every spartan name from spartans table
+//        ResultSet rs_sp2 = stmt_sp.executeQuery("select name from spartans");
+//        while (rs_sp2.next()){
+//            System.out.println(rs_sp2.getString(1));
+//        }
+
+        // 7. get me first department name from departments table
+//        ResultSet rs_hr3 = stmt_hr.executeQuery("select department_name from departments");
+//        rs_hr3.next();
+//        System.out.println(rs_hr3.getString(1));
+
+        // 8. get me last street address from locations table
+//        ResultSet rs_hr4 = stmt_hr.executeQuery("select STREET_ADDRESS from locations");
+//        rs_hr4.last();
+//        System.out.println(rs_hr4.getString(1));
+
+        // 9. get me "ResultSet.next was not called" exception
+        ResultSet rs_hr5 = stmt_hr.executeQuery("select * from employees");
+//        System.out.println(rs_hr5.getString(1));
+
+        // 10. get me "Result set after last row" exception
+        rs_hr5.afterLast();
+//        System.out.println(rs_hr5.getString(1));
+
+
+        // 11. get me 10th spartans's gender
+        ResultSet rs_sp3 = stmt_sp.executeQuery("select gender from spartans");
+        rs_sp3.absolute(10);
+        System.out.println(rs_sp3.getString(1));
 
 
     }
