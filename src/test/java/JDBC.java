@@ -95,8 +95,44 @@ public class JDBC {
 
         // 11. get me 10th spartans's gender
         ResultSet rs_sp3 = stmt_sp.executeQuery("select gender from spartans");
-        rs_sp3.absolute(10);
-        System.out.println(rs_sp3.getString(1));
+//        rs_sp3.absolute(10);
+//        System.out.println(rs_sp3.getString(1));
+
+        // 12. get me 5th job_title from jobs table
+        ResultSet rs_hr6 = stmt_hr.executeQuery("select JOB_TITLE from jobs");
+        rs_hr6.absolute(5);
+//        System.out.println(rs_hr6.getString(1));
+
+        // 13. get me the first created date(not including time) in spartans table
+        ResultSet rs_sp4 = stmt_sp.executeQuery("select CREATED_AT from spartans");
+        rs_sp4.next();
+//        System.out.println(rs_sp4.getDate(1));
+
+
+        // 14. get me 5th manager_id from departments table (dont' use getString() method)
+//        ResultSet rs_hr7 = stmt_hr.executeQuery("select MANAGER_ID from departments");
+//        rs_hr7.absolute(5);
+//        System.out.println(rs_hr7.getInt(1));
+
+        // 15. get me the highest salary from employees table ( don't use getInt or getString method)
+//        ResultSet rs_hr7 = stmt_hr.executeQuery("select max(salary) from employees");
+//        rs_hr7.next();
+//        System.out.println(rs_hr7.getDouble(1));
+
+
+        // 16. get me column numbers of spartans table
+//        ResultSet rs_sp5 = stmt_sp.executeQuery("select * from spartans");
+//        ResultSetMetaData rsmd_sp = rs_sp5.getMetaData();
+//        System.out.println(rsmd_sp.getColumnCount());
+
+
+        // 17. get me all column names from job_history table
+        ResultSet rs_hr8 = stmt_hr.executeQuery("select * from job_history");
+        ResultSetMetaData rsmd_hr = rs_hr8.getMetaData();
+        int columnCount = rsmd_hr.getColumnCount();
+        for (int i = 1; i <= columnCount; i++) {
+            System.out.println(rsmd_hr.getColumnName(i));
+        }
 
 
     }
